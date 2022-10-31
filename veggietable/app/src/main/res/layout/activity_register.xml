@@ -91,7 +91,7 @@
         android:layout_height="70dp" />
 
     <Button
-        android:id="@+id/login_btn"
+        android:id="@+id/register_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="회원가입 완료"
