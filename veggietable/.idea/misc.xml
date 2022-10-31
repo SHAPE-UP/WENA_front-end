@@ -3,7 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/1_otcroz/2022_software_engineering/front-end/veggietable/app/src/main/res/drawable/radius_button.xml" value="0.12" />
+        <entry key="..\:/1_otcroz/2022_software_engineering/front-end/veggietable/app/src/main/res/drawable/radius_button_sub1.xml" value="0.12" />
+        <entry key="..\:/1_otcroz/2022_software_engineering/front-end/veggietable/app/src/main/res/drawable/radius_button_sub2.xml" value="0.12" />
+        <entry key="..\:/1_otcroz/2022_software_engineering/front-end/veggietable/app/src/main/res/drawable/radius_input.xml" value="0.1955" />
         <entry key="..\:/1_otcroz/2022_software_engineering/front-end/veggietable/app/src/main/res/layout/activity_contact_call_list.xml" value="0.10778985507246377" />
+        <entry key="..\:/1_otcroz/2022_software_engineering/front-end/veggietable/app/src/main/res/layout/activity_login.xml" value="0.19635416666666666" />
+        <entry key="..\:/1_otcroz/2022_software_engineering/front-end/veggietable/app/src/main/res/layout/activity_register.xml" value="0.19635416666666666" />
+        <entry key="..\:/1_otcroz/2022_software_engineering/front-end/veggietable/app/src/main/res/layout/activity_start.xml" value="0.176" />
         <entry key="..\:/2022/SWE/front-end/veggietable/app/src/main/res/layout/activity_main.xml" value="0.1875" />
       </map>
     </option>
