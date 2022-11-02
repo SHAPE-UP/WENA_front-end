@@ -24,11 +24,19 @@
         app:titleTextColor="@color/white">
     </androidx.appcompat.widget.Toolbar>
 
+    <!--spinner-->
+    <Spinner
+        android:id="@+id/main_spinner"
+        android:layout_width="200dp"
+        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:gravity="center">
 
         <EditText

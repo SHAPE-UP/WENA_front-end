@@ -36,26 +36,25 @@ class ListMemberActivity : AppCompatActivity() {
             // 인텐트 받기
             val search = intent.getStringExtra("search")
             val type = intent.getStringExtra("type")
-            Log.d("mobileApp", "type: $type")
+            //Log.d("mobileApp", "type: $type")
+            Log.d("mobileApp", "search: $search")
 
             // 검색의 경우
             if(type !== null){
                 when (type) {
-                    "member" -> { // 의원명
+                    "의원명" -> { // 의원명
                         callData(search!!, "", "")
                     }
-                    "party" -> { // 정당
+                    "정당명" -> { // 정당
                         callData("", search!!, "")
                     }
-                    "election" -> { // 지역구
+                    "선거구" -> { // 선거구
                         callData("", "", search!!)
                     }
                 }
             } else { // 검색이 아닌 경우 (전체 디스플레이)
                 callData("", "", "")
             }
-
-            displayList(resItem)
         }
     }
 
@@ -98,6 +97,9 @@ class ListMemberActivity : AppCompatActivity() {
                         binding.listMemberLayout.visibility = View.VISIBLE
 
                         resItem = response.body()!!.row
+
+                        // display list
+                        displayList(resItem)
                     }
 
                 }
