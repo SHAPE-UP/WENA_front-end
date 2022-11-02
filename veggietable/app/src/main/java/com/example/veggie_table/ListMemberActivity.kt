@@ -1,5 +1,6 @@
 package com.example.veggie_table
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -53,6 +54,8 @@ class ListMemberActivity : AppCompatActivity() {
             } else { // 검색이 아닌 경우 (전체 디스플레이)
                 callData("", "", "")
             }
+
+            displayList(resItem)
         }
     }
 
@@ -64,7 +67,10 @@ class ListMemberActivity : AppCompatActivity() {
         // 리사이클러뷰 이벤트 처리
         searchAdapter.setItemClickListener(object: SearchAdapter.OnItemClickListener {
             override fun onClick(v: View, position: Int) {
-                // 상세 정보에 intent로 data 보내기
+                // 페이지 이동, 상세 정보 페이지에 data 전송
+                val intent = Intent(baseContext, DetailMemberActivity::class.java)
+                intent.putExtra("code", data[position].MONA_CD) // 의원 번호를 intent
+                startActivity(intent)
             }
         })
     }
@@ -73,7 +79,7 @@ class ListMemberActivity : AppCompatActivity() {
     private suspend fun callData(name: String, party: String, election: String){
         // 데이터를 가져온다.
         call = MyApplication.networkServiceAssemblyData.getList(
-            "907a382b30f5412c84614096181ce479","xml", 1, 20, name, party, election
+            "907a382b30f5412c84614096181ce479","xml", 1, 20, name, party, election, ""
         )
 
         //서버로부터 전달받은 내용 처리
@@ -96,7 +102,7 @@ class ListMemberActivity : AppCompatActivity() {
 
                 }
 
-            }catch (e: SocketTimeoutException){
+            } catch (e: SocketTimeoutException){
                 Log.d("mobileApp", "Exception: ${e.toString()}")
             }
     }

@@ -29,6 +29,8 @@ data class Result(
 @Xml
 data class myRow( // count: 17
     @PropertyElement
+    val MONA_CD: String?,
+    @PropertyElement
     val HG_NM: String?,
     @PropertyElement
     val HJ_NM: String?,
@@ -62,7 +64,6 @@ data class myRow( // count: 17
     val ASSEM_ADDR: String?,
     @PropertyElement
     val HOMEPAGE: String?,
-
     ){
-    constructor() : this( null,null, null, null, null, null, null,null,null,null,null,null,null,null,null,null,null)
+    constructor() : this( null, null,null, null, null, null, null, null,null,null,null,null,null,null,null,null,null,null)
 }

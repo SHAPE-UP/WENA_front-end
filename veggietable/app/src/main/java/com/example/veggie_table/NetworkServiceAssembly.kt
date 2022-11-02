@@ -14,6 +14,7 @@ interface NetworkServiceAssembly {
         @Query("HG_NM") HG_NM : String?, // 이름
         @Query("POLY_NM") POLY_NM : String?, // 정당명
         @Query("ORIG_NM") ORIG_NM : String?, // 선거구
+        @Query("MONA_CD") MONA_CD: String?
     ) : Call<responseInfo>
 
 }
