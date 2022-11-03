@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,7 +26,19 @@ class ListMemberActivity : AppCompatActivity() {
 
     private lateinit var call: Call<responseInfo>
     private lateinit var binding: ActivityListMemberBinding
-    lateinit var resItem : MutableList<myRow>
+    private var resItem = mutableListOf<myRow>()
+
+    // 정당별 필터링 array
+    var partyDatas0 = mutableListOf<myRow>() // 더불어민주당
+    var partyDatas1 = mutableListOf<myRow>() // 국민의힘
+    var partyDatas2 = mutableListOf<myRow>() // 정의당
+    var partyDatas3 = mutableListOf<myRow>() // 기본소득당
+    var partyDatas4 = mutableListOf<myRow>() // 시대전환당
+    var partyDatas5 = mutableListOf<myRow>() // 미래한국당
+    var partyDatas6 = mutableListOf<myRow>() // 더불어시민당
+    var partyDatas7 = mutableListOf<myRow>() // 국민의당
+    var partyDatas8 = mutableListOf<myRow>() // 열린민주당
+    var partyDatas9 = mutableListOf<myRow>() // 무소속
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +55,101 @@ class ListMemberActivity : AppCompatActivity() {
         val partySpinner = ArrayAdapter.createFromResource(this, R.array.parties, android.R.layout.simple_spinner_dropdown_item)
         binding.partySpinner.adapter = partySpinner
 
-        // 스피너 : 정당 필터링
+
+        val partyArray = resources.getStringArray(R.array.parties) // party 배열
+
+        binding.partySpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                resItem.clear() // data clear
+
+                when(partyArray[position]){
+                    "더불어민주당" -> {
+                        if(partyDatas0.size != 0 ) {
+                            binding.noSearch.visibility = View.GONE
+                            for (i in 0 until partyDatas0.size) resItem.add(partyDatas0[i])
+                        }
+                        else binding.noSearch.visibility = View.VISIBLE
+                    }
+                    "국민의힘" -> {
+                        if(partyDatas1.size != 0 ) {
+                            binding.noSearch.visibility = View.GONE
+                            for (i in 0 until partyDatas1.size) resItem.add(partyDatas1[i])
+                        }
+                        else binding.noSearch.visibility = View.VISIBLE
+                    }
+                    "정의당" -> {
+                        if(partyDatas2.size != 0 ) {
+                            binding.noSearch.visibility = View.GONE
+                            for (i in 0 until partyDatas2.size) resItem.add(partyDatas2[i])
+                        }
+                        else binding.noSearch.visibility = View.VISIBLE
+                    }
+                    "기본소득당" -> {
+                        if(partyDatas3.size != 0 ) {
+                            binding.noSearch.visibility = View.GONE
+                            for (i in 0 until partyDatas3.size) resItem.add(partyDatas3[i])
+                        }
+                        else binding.noSearch.visibility = View.VISIBLE
+                    }
+                    "시대전환당" -> {
+                        if(partyDatas4.size != 0 ) {
+                            binding.noSearch.visibility = View.GONE
+                            for (i in 0 until partyDatas4.size) resItem.add(partyDatas4[i])
+                        }
+                        else binding.noSearch.visibility = View.VISIBLE
+                    }
+                    "미래한국당" -> {
+                        if(partyDatas5.size != 0 ) {
+                            binding.noSearch.visibility = View.GONE
+                            for (i in 0 until partyDatas5.size) resItem.add(partyDatas5[i])
+                        }
+                        else binding.noSearch.visibility = View.VISIBLE
+                    }
+                    "더불어시민당" -> {
+                        if(partyDatas6.size != 0 ) {
+                            binding.noSearch.visibility = View.GONE
+                            for (i in 0 until partyDatas6.size) resItem.add(partyDatas6[i])
+                        }
+                        else binding.noSearch.visibility = View.VISIBLE
+                    }
+                    "국민의당" -> {
+                        if(partyDatas7.size != 0 ) {
+                            binding.noSearch.visibility = View.GONE
+                            for (i in 0 until partyDatas7.size) resItem.add(partyDatas7[i])
+                        }
+                        else binding.noSearch.visibility = View.VISIBLE
+                    }
+                    "열린민주당" -> {
+                        if(partyDatas8.size != 0 ) {
+                            binding.noSearch.visibility = View.GONE
+                            for (i in 0 until partyDatas8.size) resItem.add(partyDatas8[i])
+                        }
+                        else binding.noSearch.visibility = View.VISIBLE
+                    }
+                    "무소속" -> {
+                        if(partyDatas9.size != 0 ) {
+                            binding.noSearch.visibility = View.GONE
+                            for (i in 0 until partyDatas9.size) resItem.add(partyDatas9[i])
+                        }
+                        else binding.noSearch.visibility = View.VISIBLE
+                    }
+                }
+
+
+                // 리사이클러 뷰
+                displayList(resItem)
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+
+        }
+            // 스피너 : 검색 필터링
         val listSpinner = ArrayAdapter.createFromResource(this, R.array.catrgories, android.R.layout.simple_spinner_dropdown_item)
         binding.searchSpinner.adapter = listSpinner
 
@@ -139,6 +247,23 @@ class ListMemberActivity : AppCompatActivity() {
                         binding.listMemberLayout.visibility = View.VISIBLE
 
                         resItem = response.body()!!.row
+
+                        // 정당 나누기
+                        for(i in 0 until resItem.size){
+                            when (resItem[i].POLY_NM) {
+                                "더불어민주당" -> partyDatas0.add(resItem[i])
+                                "국민의힘" -> partyDatas1.add(resItem[i])
+                                "정의당" -> partyDatas2.add(resItem[i])
+                                "기본소득당" -> partyDatas3.add(resItem[i])
+                                "시대전환당" -> partyDatas4.add(resItem[i])
+                                "미래한국당" -> partyDatas5.add(resItem[i])
+                                "더불어시민당" -> partyDatas6.add(resItem[i])
+                                "국민의당" -> partyDatas7.add(resItem[i])
+                                "열린민주당" -> partyDatas8.add(resItem[i])
+                                "무소속" -> partyDatas9.add(resItem[i])
+
+                            }
+                        }
 
                         // display list
                         displayList(resItem)
