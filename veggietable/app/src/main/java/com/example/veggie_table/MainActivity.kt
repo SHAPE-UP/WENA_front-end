@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.widget.ArrayAdapter
 import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
@@ -59,15 +60,22 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+        // 스피너
+        val mainSpinner = ArrayAdapter.createFromResource(this, R.array.catrgories, android.R.layout.simple_spinner_dropdown_item)
+        binding.mainSpinner.adapter = mainSpinner;
 
 
        // 검색창
         binding.searchBtn.setOnClickListener {
             val inputSearch = binding.mainSearch.text
 
+            val type = binding.mainSpinner.selectedItem
+            Log.d("mobileApp", "$type")
+
             // list page에 검색어 전달
             val intent = Intent(this, ListMemberActivity::class.java)
-            intent.putExtra("search", inputSearch)
+            intent.putExtra("search", inputSearch.toString())
+            intent.putExtra("type", type.toString())
             startActivity(intent)
         }
 

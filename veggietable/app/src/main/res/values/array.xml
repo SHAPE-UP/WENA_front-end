@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="catrgories">
+        <item>의원명</item>
+        <item>정당명</item>
+        <item>선거구</item>
+    </string-array>
+
+    <string-array name="parties">
+        <item>더불어민주당</item>
+        <item>국민의힘</item>
+        <item>정의당</item>
+        <item>무소속</item>
+    </string-array>
+</resources>
