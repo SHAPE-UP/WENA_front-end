@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ArrayAdapter
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.veggie_table.databinding.ActivityListMemberBinding
 import kotlinx.coroutines.CoroutineScope
@@ -28,6 +31,45 @@ class ListMemberActivity : AppCompatActivity() {
 
         binding = ActivityListMemberBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // back
+        binding.backBtn.setOnClickListener {
+            super.onBackPressed()
+        }
+
+        // 스피너 : 정당 필터링
+        val partySpinner = ArrayAdapter.createFromResource(this, R.array.parties, android.R.layout.simple_spinner_dropdown_item)
+        binding.partySpinner.adapter = partySpinner
+
+        // 스피너 : 정당 필터링
+        val listSpinner = ArrayAdapter.createFromResource(this, R.array.catrgories, android.R.layout.simple_spinner_dropdown_item)
+        binding.searchSpinner.adapter = listSpinner
+
+        // search
+        binding.menuSearch.isSubmitButtonEnabled = true
+        binding.menuSearch.queryHint="검색창에 검색어를 입력하세요."
+        binding.menuSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+
+                val type = binding.searchSpinner.selectedItem
+                Log.d("mobileApp", "$type")
+
+                // list page에 검색어 전달
+                val intent = Intent(baseContext, ListMemberActivity::class.java)
+                intent.putExtra("search", query.toString())
+                intent.putExtra("type", type.toString())
+                startActivity(intent)
+
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+                // 검색창에서 글자가 변경이 일어날 때마다 호출
+
+                return true
+            }
+        })
 
         // list
         CoroutineScope(Dispatchers.Main).launch {
