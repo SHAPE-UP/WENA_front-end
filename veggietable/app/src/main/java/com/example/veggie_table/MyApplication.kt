@@ -7,6 +7,7 @@ import com.tickaroo.tikxml.retrofit.TikXmlConverterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MyApplication: Application() {
     companion object {
@@ -20,6 +21,17 @@ class MyApplication: Application() {
                 .client(client)
                 .build()
 
+        // 서버 api
+        val apiserver = "http://10.138.7.94:3000/"
+
+        var networkServiceUsers: NetworkServiceUsers
+        val retrofitUsers: Retrofit
+            get() = Retrofit.Builder()
+                .baseUrl(apiserver + "api/user/")
+                .client(client)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+
         // OkHttpClient
         var client = OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor())
              .build()
@@ -27,6 +39,7 @@ class MyApplication: Application() {
 
         init {
             networkServiceAssemblyData = retrofitAssemblyData.create(NetworkServiceAssembly::class.java)
+            networkServiceUsers = retrofitUsers.create(NetworkServiceUsers::class.java)
         }
 
         private fun httpLoggingInterceptor(): HttpLoggingInterceptor? {

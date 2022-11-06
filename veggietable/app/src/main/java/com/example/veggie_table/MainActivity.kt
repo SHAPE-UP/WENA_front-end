@@ -7,11 +7,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.GravityCompat
 import com.example.veggie_table.databinding.ActivityMainBinding
+import com.example.veggie_table.databinding.DrawlayoutHeaderBinding
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +24,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+
+        // display user info
+        displayUserInfo()
         setContentView(binding.root)
 
         // 툴바 설정
@@ -36,7 +41,12 @@ class MainActivity : AppCompatActivity() {
         // logout alert 이벤트
         val eventHandler = DialogInterface.OnClickListener { p0, p1 ->
             if(p1 == DialogInterface.BUTTON_POSITIVE){
-                //  로그아웃 api
+                //  로그아웃 처리
+                SharedPreference.clearAll(baseContext)
+
+                // 시작 페이지로 이동
+                val intent = Intent(baseContext, StartActivity::class.java)
+                startActivity(intent)
             }
         }
 
@@ -113,5 +123,22 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun displayUserInfo(){
+        val drawBinding = DrawlayoutHeaderBinding.inflate(layoutInflater)
+        val nikname = drawBinding.profileEmail
+        val email = drawBinding.profileName
+        val residence = drawBinding.profileResidence
+
+        // 유저가 로그인했을 경우
+        if(SharedPreference.getUserEmail(this)?.length != 0){
+            Log.d("mobileApp", "너 왜 안 바뀌어?")
+            nikname.text = SharedPreference.getUserName(this)
+            email.text = SharedPreference.getUserEmail(this)
+            residence.text = SharedPreference.getUserResidence(this)
+
+            Log.d("mobileApp", "${nikname.text}")
+        }
     }
 }
