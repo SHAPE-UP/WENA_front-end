@@ -1,9 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/base_color1"
+    android:orientation="vertical"
     tools:context=".ContactSelectActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/radius_toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:titleTextColor="@color/white">
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/transparent"
+            android:src="@drawable/ic_back" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:text="문의하기"
+            />
+    </androidx.appcompat.widget.Toolbar>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="30dp"
+        android:textAlignment="center"
+        android:text="국회 서비스의 문의처를 조회하고,\n통화를 시작하거나 메일을 전송합니다." />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="vertical">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btn_contact_call"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="130dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_call_fill"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_contact_call_text"
+                app:layout_constraintEnd_toStartOf="@+id/btn_contact_call_text"
+                app:layout_constraintTop_toTopOf="@+id/btn_contact_call_text" />
+            <TextView
+                android:id="@+id/btn_contact_call_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="전화 문의처 목록"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="확인하기"
+                android:textSize="18sp"
+                android:textColor="@color/green"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_contact_sel_call"
+                app:layout_constraintEnd_toEndOf="@+id/btn_contact_sel_call"
+                app:layout_constraintStart_toStartOf="@+id/btn_contact_sel_call"
+                app:layout_constraintTop_toTopOf="@+id/btn_contact_sel_call" />
+            <Button
+                android:id="@+id/btn_contact_sel_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_contact_sel_call"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_contact_call_text" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="130dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_mail_fill"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_contact_mail_text"
+                app:layout_constraintEnd_toStartOf="@+id/btn_contact_mail_text"
+                app:layout_constraintTop_toTopOf="@+id/btn_contact_mail_text" />
+            <TextView
+                android:id="@+id/btn_contact_mail_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="이메일 문의처 목록"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="확인하기"
+                android:textSize="18sp"
+                android:textColor="@color/yellow"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_contact_sel_mail"
+                app:layout_constraintEnd_toEndOf="@+id/btn_contact_sel_mail"
+                app:layout_constraintStart_toStartOf="@+id/btn_contact_sel_mail"
+                app:layout_constraintTop_toTopOf="@+id/btn_contact_sel_mail" />
+            <Button
+                android:id="@+id/btn_contact_sel_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_contact_sel_mail"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_contact_mail_text" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</LinearLayout>
