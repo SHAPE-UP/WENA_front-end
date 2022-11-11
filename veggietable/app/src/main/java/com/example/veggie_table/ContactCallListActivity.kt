@@ -48,8 +48,6 @@ class ContactCallListActivity : AppCompatActivity() {
         rv_phone_book = findViewById(R.id.rv_phone_book)
         search_view_phone_book = findViewById(R.id.search_view_phone_book)
         search_view_phone_book.setOnQueryTextListener(searchViewTextListener)
-
-
     }
 
     override fun onResume() {
