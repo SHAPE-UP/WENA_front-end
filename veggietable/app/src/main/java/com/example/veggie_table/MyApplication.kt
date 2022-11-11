@@ -36,7 +36,6 @@ class MyApplication: Application() {
         var client = OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor())
              .build()
 
-
         init {
             networkServiceAssemblyData = retrofitAssemblyData.create(NetworkServiceAssembly::class.java)
             networkServiceUsers = retrofitUsers.create(NetworkServiceUsers::class.java)
