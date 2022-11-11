@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:textFontWeight="700"
-                    android:text="닉네임"/>
+                    android:text="Shapeup"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="18dp"
-                android:text="이메일" />
+                android:text="shapeup@naver.com" />
 
             <TextView
                 android:id="@+id/profile_residence"
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/main_color"
                 android:textSize="16dp"
-                android:text="거주지" />
+                android:text="서울" />
         </LinearLayout>
     </LinearLayout>
 

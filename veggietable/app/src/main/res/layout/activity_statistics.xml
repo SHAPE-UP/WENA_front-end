@@ -5,13 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_marginHorizontal="16dp"
     tools:context=".StatisticsActivity">
 
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="80dp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="80dp"
         android:id="@+id/radio_group">
         <RadioButton
             android:layout_width="wrap_content"
@@ -25,32 +27,16 @@
             android:id="@+id/radiobutton_sex"
             android:layout_marginEnd="10dp"
             android:text="성별" />
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/radiobutton_cmit"
-            android:layout_marginEnd="10dp"
-            android:text="소속위원회" />
     </RadioGroup>
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pieChart"
         android:layout_width="match_parent"
         android:layout_height="400dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MPAndroidPie chart in action!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pieChart" />
-
 
 </LinearLayout>
