@@ -1,9 +1,9 @@
 package com.example.veggie_table
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.veggie_table.databinding.ActivityDetailMemberBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -53,6 +53,10 @@ class DetailMemberActivity : AppCompatActivity() {
                 if(response.isSuccessful){
                     resItem = response.body()!!.row
                     Log.d("mobileApp", "$resItem")
+
+                    binding.detailImage
+                    val imageUrl = "https://khrs3bucket.s3.ap-northeast-2.amazonaws.com/사진/사진/"+resItem[0].HG_NM+".jpg"
+                    Glide.with(this).load(imageUrl).into(binding.detailImage)
                     binding.detailName.text=resItem[0].HG_NM
                     binding.detailPoly.text=resItem[0].POLY_NM
                     binding.detailOrig.text=resItem[0].ORIG_NM
@@ -60,6 +64,7 @@ class DetailMemberActivity : AppCompatActivity() {
                     binding.detailCmits.text=resItem[0].CMITS
                     binding.detailTel.text=resItem[0].TEL_NO
                     binding.detailEmail.text=resItem[0].E_MAIL
+
                 }
 
             }
