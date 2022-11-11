@@ -53,6 +53,13 @@ class DetailMemberActivity : AppCompatActivity() {
                 if(response.isSuccessful){
                     resItem = response.body()!!.row
                     Log.d("mobileApp", "$resItem")
+                    binding.detailName.text=resItem[0].HG_NM
+                    binding.detailPoly.text=resItem[0].POLY_NM
+                    binding.detailOrig.text=resItem[0].ORIG_NM
+                    binding.detailTitle.text=resItem[0].MEM_TITLE
+                    binding.detailCmits.text=resItem[0].CMITS
+                    binding.detailTel.text=resItem[0].TEL_NO
+                    binding.detailEmail.text=resItem[0].E_MAIL
                 }
 
             }

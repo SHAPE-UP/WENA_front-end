@@ -19,18 +19,20 @@
         <entry key="..\:/1_otcroz/2022_software_engineering/front-end/veggietable/app/src/main/res/layout/activity_register.xml" value="0.19635416666666666" />
         <entry key="..\:/1_otcroz/2022_software_engineering/front-end/veggietable/app/src/main/res/layout/activity_splash.xml" value="0.24947916666666667" />
         <entry key="..\:/1_otcroz/2022_software_engineering/front-end/veggietable/app/src/main/res/layout/activity_start.xml" value="0.176" />
-        <entry key="..\:/1_otcroz/2022_software_engineering/front-end/veggietable/app/src/main/res/layout/activity_statistics.xml" value="0.22146739130434784" />
         <entry key="..\:/1_otcroz/2022_software_engineering/front-end/veggietable/app/src/main/res/layout/drawlayout_header.xml" value="0.1859375" />
         <entry key="..\:/1_otcroz/2022_software_engineering/front-end/veggietable/app/src/main/res/layout/item_member_list.xml" value="0.16145833333333334" />
         <entry key="..\:/1_otcroz/2022_software_engineering/front-end/veggietable/app/src/main/res/menu/main_menu.xml" value="0.1859375" />
         <entry key="..\:/1_otcroz/2022_software_engineering/front-end/veggietable/app/src/main/res/menu/nav_menu.xml" value="0.18020833333333333" />
-        <entry key="..\:/2.Hwater00/softwa/remake/front-end/veggietable/app/src/main/res/drawable/ic_call_100.xml" value="0.1" />
-        <entry key="..\:/2.Hwater00/softwa/remake/front-end/veggietable/app/src/main/res/drawable/ic_sms_100.xml" value="0.1" />
-        <entry key="..\:/2.Hwater00/softwa/remake/front-end/veggietable/app/src/main/res/layout/activity_contact_call_list.xml" value="0.1" />
-        <entry key="..\:/2.Hwater00/softwa/remake/front-end/veggietable/app/src/main/res/layout/activity_contact_mail_list.xml" value="0.1" />
-        <entry key="..\:/2.Hwater00/softwa/remake/front-end/veggietable/app/src/main/res/layout/activity_list_member.xml" value="0.13405797101449277" />
-        <entry key="..\:/2.Hwater00/softwa/remake/front-end/veggietable/app/src/main/res/layout/item_member_list.xml" value="0.12132725430597771" />
-        <entry key="..\:/2.Hwater00/softwa/remake/front-end/veggietable/app/src/main/res/layout/item_phonebook.xml" value="0.136" />
+        <entry key="..\:/2022 workspace/front-end/veggietable/app/src/main/res/drawable/btn_contact_sel_call.xml" value="0.1" />
+        <entry key="..\:/2022 workspace/front-end/veggietable/app/src/main/res/drawable/btn_contact_sel_mail.xml" value="0.1" />
+        <entry key="..\:/2022 workspace/front-end/veggietable/app/src/main/res/drawable/ic_call_fill.xml" value="0.1" />
+        <entry key="..\:/2022 workspace/front-end/veggietable/app/src/main/res/drawable/ic_mail_fill.xml" value="0.1" />
+        <entry key="..\:/2022 workspace/front-end/veggietable/app/src/main/res/layout/activity_contact_call_list.xml" value="0.1" />
+        <entry key="..\:/2022 workspace/front-end/veggietable/app/src/main/res/layout/activity_contact_mail_list.xml" value="0.1361111111111111" />
+        <entry key="..\:/2022 workspace/front-end/veggietable/app/src/main/res/layout/activity_contact_select.xml" value="0.1361111111111111" />
+        <entry key="..\:/2022 workspace/front-end/veggietable/app/src/main/res/layout/activity_detail_member.xml" value="0.25" />
+        <entry key="..\:/2022 workspace/front-end/veggietable/app/src/main/res/layout/activity_login.xml" value="0.18" />
+        <entry key="..\:/2022 workspace/front-end/veggietable/app/src/main/res/layout/activity_register.xml" value="0.36614583333333334" />
         <entry key="..\:/2022/SWE/front-end/veggietable/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.147" />
         <entry key="..\:/2022/SWE/front-end/veggietable/app/src/main/res/drawable/btn_call.xml" value="0.147" />
         <entry key="..\:/2022/SWE/front-end/veggietable/app/src/main/res/drawable/btn_email.xml" value="0.147" />
