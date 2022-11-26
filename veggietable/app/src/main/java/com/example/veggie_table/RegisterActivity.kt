@@ -31,7 +31,7 @@ class RegisterActivity : AppCompatActivity() {
                 RegisterReq(newNikname, newEmail, newPassword, newResidence)
             )
 
-            call?.enqueue(object : Callback<RegisterRes> {
+            call.enqueue(object : Callback<RegisterRes> {
                 override fun onResponse(call: Call<RegisterRes>, response: Response<RegisterRes>) {
                     if(response.isSuccessful){
 

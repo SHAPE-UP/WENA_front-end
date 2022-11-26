@@ -22,25 +22,25 @@ class LoginActivity : AppCompatActivity() {
 
         // "로그인" 버튼 클릭
         binding.loginBtn.setOnClickListener {
-            val inputEmail = binding.inputEmail.text.toString()
-            val inputPassword = binding.inputPassword.text.toString()
+            val inputEmail = binding.inputEmail.text.toString() // 아이디 입력창
+            val inputPassword = binding.inputPassword.text.toString() // 비밀번호 입력창
 
             // 해당 이메일과 비밀번호가 일치하는 회원 찾기
             val call: Call<LoginRes> = MyApplication.networkServiceUsers.login(
                 LoginReq(inputEmail, inputPassword)
             )
 
-            call?.enqueue(object : Callback<LoginRes> {
+            call.enqueue(object : Callback<LoginRes> {
                 override fun onResponse(call: Call<LoginRes>, response: Response<LoginRes>) {
                     if(response.isSuccessful){
                         if(response.body()?.loginSuccess == "true"){ // 로그인 성공
 
                             // SharedPreference 저장
                             Log.d("mobileApp", "inputEmail: $inputEmail")
-                            SharedPreference.setUserEmail(baseContext, inputEmail)
-                            SharedPreference.setUserId(baseContext, response.body()!!.user._id)
-                            SharedPreference.setUserResidence(baseContext, response.body()!!.user.residence)
-                            SharedPreference.setUserName(baseContext, response.body()!!.user.id)
+                            SharedPreference.setUserEmail(baseContext, inputEmail) // 이메일 저장
+                            SharedPreference.setUserId(baseContext, response.body()!!.user._id) // 유저 id 저장
+                            SharedPreference.setUserResidence(baseContext, response.body()!!.user.residence) // 거주지 저장
+                            SharedPreference.setUserName(baseContext, response.body()!!.user.id) // 유저 닉네임 저장
 
                             // 메인 페이지로 이동
                             Toast.makeText(baseContext, "로그인을 성공했습니다!", Toast.LENGTH_SHORT).show()
