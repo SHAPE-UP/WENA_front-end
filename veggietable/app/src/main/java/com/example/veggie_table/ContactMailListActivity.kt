@@ -18,7 +18,7 @@ class ContactMailListActivity : AppCompatActivity() {
             email.type = "plain/text"
             val address = arrayOf(sendto)
             email.putExtra(Intent.EXTRA_EMAIL, address)
-            email.putExtra(Intent.EXTRA_SUBJECT, "[wena] 문의")
+            email.putExtra(Intent.EXTRA_SUBJECT, "[WENA] 문의")
             email.putExtra(Intent.EXTRA_TEXT, "내용")
             startActivity(email)
         }
